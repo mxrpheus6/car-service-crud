@@ -29,7 +29,7 @@ public class ClientService {
     public ClientDTO createClient(ClientDTO clientDTO) {
         clientDTO.setId(null);
         Client client = clientMapper.toEntity(clientDTO);
-        return clientMapper.toDto(client);
+        return clientMapper.toDto(clientRepository.save(client));
     }
 
     public ClientDTO updateClient(Long id, ClientDTO clientDTO) {

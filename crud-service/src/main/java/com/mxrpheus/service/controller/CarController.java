@@ -3,6 +3,8 @@ package com.mxrpheus.service.controller;
 import com.mxrpheus.service.dto.CarDTO;
 import com.mxrpheus.service.service.CarService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -22,28 +24,29 @@ public class CarController {
     private final CarService carService;
 
     @GetMapping
-    public List<CarDTO> getAllCars() {
-        return carService.getAllCars();
+    public ResponseEntity<List<CarDTO>> getAllCars() {
+        return ResponseEntity.ok(carService.getAllCars());
     }
 
     @GetMapping("/{id}")
-    public CarDTO getCarById(@PathVariable Long id) {
-        return carService.getCarById(id);
+    public ResponseEntity<CarDTO> getCarById(@PathVariable Long id) {
+        return ResponseEntity.ok(carService.getCarById(id));
     }
 
     @PostMapping
-    public CarDTO createCar(@RequestBody CarDTO carDTO) {
-        return carService.createCar(carDTO);
+    public ResponseEntity<CarDTO> createCar(@RequestBody CarDTO carDTO) {
+        return ResponseEntity.ok(carService.createCar(carDTO));
     }
 
     @PatchMapping("/{id}")
-    public CarDTO updateCar(@PathVariable Long id, @RequestBody CarDTO carDTO) {
-        return carService.updateCar(id, carDTO);
+    public ResponseEntity<CarDTO> updateCar(@PathVariable Long id, @RequestBody CarDTO carDTO) {
+        return ResponseEntity.ok(carService.updateCar(id, carDTO));
     }
 
     @DeleteMapping("/{id}")
-    public void deleteCarById(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteCarById(@PathVariable Long id) {
         carService.deleteCarById(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
 }

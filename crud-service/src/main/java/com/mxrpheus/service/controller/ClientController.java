@@ -3,6 +3,8 @@ package com.mxrpheus.service.controller;
 import com.mxrpheus.service.dto.ClientDTO;
 import com.mxrpheus.service.service.ClientService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,28 +24,29 @@ public class ClientController {
     private final ClientService clientService;
 
     @GetMapping
-    public List<ClientDTO> getAllClients() {
-        return clientService.getAllClients();
+    public ResponseEntity<List<ClientDTO>> getAllClients() {
+        return ResponseEntity.ok(clientService.getAllClients());
     }
 
     @GetMapping("/{id}")
-    public ClientDTO getClientById(@PathVariable Long id) {
-        return clientService.getClientById(id);
+    public ResponseEntity<ClientDTO> getClientById(@PathVariable Long id) {
+        return ResponseEntity.ok(clientService.getClientById(id));
     }
 
     @PostMapping
-    public ClientDTO createClient(@RequestBody ClientDTO clientDTO) {
-        return clientService.createClient(clientDTO);
+    public ResponseEntity<ClientDTO> createClient(@RequestBody ClientDTO clientDTO) {
+        return ResponseEntity.ok(clientService.createClient(clientDTO));
     }
 
     @PutMapping("/{id}")
-    public ClientDTO updateClient(@PathVariable Long id, @RequestBody ClientDTO clientDTO) {
-        return clientService.updateClient(id, clientDTO);
+    public ResponseEntity<ClientDTO> updateClient(@PathVariable Long id, @RequestBody ClientDTO clientDTO) {
+        return ResponseEntity.ok(clientService.updateClient(id, clientDTO));
     }
 
     @DeleteMapping("/{id}")
-    public void deleteClientById(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteClientById(@PathVariable Long id) {
         clientService.deleteClientById(id);
+        return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
 
 }
