@@ -1,8 +1,6 @@
 package com.mxrpheus.service.mapper;
 
-import com.mxrpheus.service.dto.CarDTO;
 import com.mxrpheus.service.dto.ClientDTO;
-import com.mxrpheus.service.model.Car;
 import com.mxrpheus.service.model.Client;
 import org.mapstruct.BeanMapping;
 import org.mapstruct.Mapper;
