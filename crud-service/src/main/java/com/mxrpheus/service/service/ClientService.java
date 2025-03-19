@@ -8,6 +8,7 @@ import com.mxrpheus.service.repository.ClientRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Service
@@ -28,6 +29,7 @@ public class ClientService {
 
     public ClientDTO createClient(ClientDTO clientDTO) {
         clientDTO.setId(null);
+        clientDTO.setRegistrationDate(LocalDate.now());
         Client client = clientMapper.toEntity(clientDTO);
         return clientMapper.toDto(clientRepository.save(client));
     }

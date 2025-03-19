@@ -1,10 +1,12 @@
 package com.mxrpheus.service.controller;
 
 import com.mxrpheus.service.dto.CarDTO;
+import com.mxrpheus.service.dto.validation.ValidationGroups;
 import com.mxrpheus.service.service.CarService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -34,12 +36,13 @@ public class CarController {
     }
 
     @PostMapping
-    public ResponseEntity<CarDTO> createCar(@RequestBody CarDTO carDTO) {
+    public ResponseEntity<CarDTO> createCar(@Validated(ValidationGroups.OnCreate.class) @RequestBody CarDTO carDTO) {
         return ResponseEntity.ok(carService.createCar(carDTO));
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<CarDTO> updateCar(@PathVariable Long id, @RequestBody CarDTO carDTO) {
+    public ResponseEntity<CarDTO> updateCar(@PathVariable Long id,
+                                            @Validated(ValidationGroups.OnUpdate.class) @RequestBody CarDTO carDTO) {
         return ResponseEntity.ok(carService.updateCar(id, carDTO));
     }
 
