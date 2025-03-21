@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.mxrpheus</groupId>
-        <artifactId>car-service</artifactId>
+        <artifactId>car-serviceEntity</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>crud-service</artifactId>
+    <artifactId>crud-serviceEntity</artifactId>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
