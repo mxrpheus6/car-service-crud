@@ -26,28 +26,28 @@ public class WorkAreaTypeController {
     private final WorkAreaTypeService workAreaTypeService;
 
     @GetMapping
-    public ResponseEntity<List<WorkAreaTypeDTO>> getAllPositions() {
+    public ResponseEntity<List<WorkAreaTypeDTO>> getAllWorkAreaTypes() {
         return ResponseEntity.ok(workAreaTypeService.getAllWorkAreaTypes());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<WorkAreaTypeDTO> getPositionById(@PathVariable Long id) {
+    public ResponseEntity<WorkAreaTypeDTO> getWorkAreaTypeById(@PathVariable Long id) {
         return ResponseEntity.ok(workAreaTypeService.getWorkAreaTypeById(id));
     }
 
     @PostMapping
-    public ResponseEntity<WorkAreaTypeDTO> createPosition(@Validated(ValidationGroups.OnCreate.class) @RequestBody WorkAreaTypeDTO workAreaTypeDTO) {
+    public ResponseEntity<WorkAreaTypeDTO> createWorkAreaType(@Validated(ValidationGroups.OnCreate.class) @RequestBody WorkAreaTypeDTO workAreaTypeDTO) {
         return ResponseEntity.ok(workAreaTypeService.createWorkAreaType(workAreaTypeDTO));
     }
 
     @PatchMapping("/{id}")
-    public ResponseEntity<WorkAreaTypeDTO> updatePosition(@PathVariable Long id,
+    public ResponseEntity<WorkAreaTypeDTO> updateWorkAreaType(@PathVariable Long id,
                                                       @Validated(ValidationGroups.OnUpdate.class) @RequestBody WorkAreaTypeDTO workAreaTypeDTO) {
         return ResponseEntity.ok(workAreaTypeService.updateWorkAreaType(id, workAreaTypeDTO));
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletePositionById(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteWorkAreaTypeById(@PathVariable Long id) {
         workAreaTypeService.deleteWorkAreaTypeById(id);
         return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
     }
