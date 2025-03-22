@@ -9,10 +9,10 @@
 		<relativePath/>
 	</parent>
 	<groupId>com.mxrpheus</groupId>
-	<artifactId>car-serviceEntity</artifactId>
+	<artifactId>car-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
     <packaging>pom</packaging>
-    <name>car-serviceEntity</name>
+    <name>car-service</name>
 	<description>Demo project for Spring Boot</description>
 	<url/>
 	<licenses>
@@ -22,7 +22,7 @@
 		<developer/>
 	</developers>
     <modules>
-        <module>crud-serviceEntity</module>
+        <module>crud-service</module>
     </modules>
     <scm>
 		<connection/>
