@@ -11,7 +11,7 @@ import java.math.BigDecimal;
 
 @Getter
 @Setter
-public class ServiceDTO {
+public class MaintenanceDTO {
     private Long id;
 
     @NotNull(message = "Service name cannot be null", groups = ValidationGroups.OnCreate.class)

@@ -4,7 +4,6 @@ import com.mxrpheus.carservice.dto.ConsumableMaterialDTO;
 import com.mxrpheus.carservice.exception.NoSuchEntityException;
 import com.mxrpheus.carservice.mapper.ConsumableMaterialMapper;
 import com.mxrpheus.carservice.model.ConsumableMaterial;
-import com.mxrpheus.carservice.model.ServiceEntity;
 import com.mxrpheus.carservice.repository.ConsumableMaterialRepository;
 import com.mxrpheus.carservice.service.ConsumableMaterialService;
 import lombok.RequiredArgsConstructor;

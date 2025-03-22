@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 @Table(name = "service")
 @Getter
 @Setter
-public class ServiceEntity {
+public class Maintenance {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
