@@ -1,5 +1,6 @@
 package com.mxrpheus.carservice.exception;
 
+import org.postgresql.util.PSQLException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -11,6 +12,14 @@ import java.util.Map;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
+
+    @ExceptionHandler(PSQLException.class)
+    public ResponseEntity<ExceptionResponse> handlePSQLException(PSQLException ex) {
+        String simplifiedMessage = ex.getMessage().replace("\"", "'").split("\n")[0];
+        return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                .body(new ExceptionResponse(
+                        HttpStatus.INTERNAL_SERVER_ERROR.value(), simplifiedMessage));
+    }
 
     @ExceptionHandler(NoSuchEntityException.class)
     public ResponseEntity<ExceptionResponse> handleNoSuchEntityException(NoSuchEntityException ex) {
